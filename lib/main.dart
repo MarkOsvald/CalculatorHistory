@@ -56,7 +56,7 @@ class Calculator extends State<MyCalculator> {
   List<String> previousCalculations = [];
   SharedPreferences prefs;
 
-  void Sum() {
+  void Sum() async {
     if (my_form_key.currentState.validate()) {
       int numberA = int.parse(controller_numberA.text);
       int numberB = int.parse(controller_numberB.text);
@@ -68,6 +68,7 @@ class Calculator extends State<MyCalculator> {
         textToShow = "$numberA + $numberB = $result";
         textToHistory = "equation: '$textToShow' \n timestamp: $formattedDate";
       });
+      prefs = await SharedPreferences.getInstance();
       prefs.setString(DateTime.now().toString(), textToHistory);
       setState(() {
         previousCalculations.add(textToHistory);
@@ -75,7 +76,7 @@ class Calculator extends State<MyCalculator> {
     }
   }
 
-  void Minus() {
+  void Minus() async {
     if (my_form_key.currentState.validate()) {
       int numberA = int.parse(controller_numberA.text);
       int numberB = int.parse(controller_numberB.text);
@@ -87,6 +88,7 @@ class Calculator extends State<MyCalculator> {
         textToShow = "$numberA - $numberB = $result";
         textToHistory = "equation: '$textToShow' \n timestamp: $formattedDate";
       });
+      prefs = await SharedPreferences.getInstance();
       prefs.setString(DateTime.now().toString(), textToHistory);
       setState(() {
         previousCalculations.add(textToHistory);
@@ -94,7 +96,7 @@ class Calculator extends State<MyCalculator> {
     }
   }
 
-  void Times() {
+  void Times() async {
     if (my_form_key.currentState.validate()) {
       int numberA = int.parse(controller_numberA.text);
       int numberB = int.parse(controller_numberB.text);
@@ -106,6 +108,7 @@ class Calculator extends State<MyCalculator> {
         textToShow = "$numberA * $numberB = $result";
         textToHistory = "equation: '$textToShow' \n timestamp: $formattedDate";
       });
+      prefs = await SharedPreferences.getInstance();
       prefs.setString(DateTime.now().toString(), textToHistory);
       setState(() {
         previousCalculations.add(textToHistory);
@@ -113,7 +116,7 @@ class Calculator extends State<MyCalculator> {
     }
   }
 
-  void Divide() {
+  void Divide() async {
     if (my_form_key.currentState.validate()) {
       int numberA = int.parse(controller_numberA.text);
       int numberB = int.parse(controller_numberB.text);
@@ -125,6 +128,7 @@ class Calculator extends State<MyCalculator> {
         textToShow = "$numberA / $numberB = $result";
         textToHistory = "equation: '$textToShow' \n timestamp: $formattedDate";
       });
+      prefs = await SharedPreferences.getInstance();
       prefs.setString(DateTime.now().toString(), textToHistory);
       setState(() {
         previousCalculations.add(textToHistory);
@@ -132,7 +136,7 @@ class Calculator extends State<MyCalculator> {
     }
   }
 
-  void Power() {
+  void Power() async {
     if (my_form_key.currentState.validate()) {
       int numberA = int.parse(controller_numberA.text);
       int numberB = int.parse(controller_numberB.text);
@@ -144,6 +148,7 @@ class Calculator extends State<MyCalculator> {
         textToShow = "$numberA ^ $numberB = $result";
         textToHistory = "equation: '$textToShow' \n timestamp: $formattedDate";
       });
+      prefs = await SharedPreferences.getInstance();
       prefs.setString(DateTime.now().toString(), textToHistory);
       setState(() {
         previousCalculations.add(textToHistory);
